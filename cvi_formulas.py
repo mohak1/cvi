@@ -11,21 +11,21 @@ import numpy as np
 
 #given the distance of the object from the lens (u) and the distance of the image from the lens (v)
 def find_f(u,v):
-  (1/f) = (1/u) + (1/v)
-  print(f)
-  return f
+  f = (1/u) + (1/v)
+  print(1/f)
+  return 1/f
 
 #given the distance of the object from the lens (u) and the focal length (f)
 def find_v(f,u):
-  (1/v) = (1/f) - (1/u)
-  print(v)
-  return v
+  v = (1/f) - (1/u)
+  print(1/v)
+  return 1/v
 
 #given the distance of the distance of the image from the lens (v) and the focal length (f)
 def find_u(f,v):
-  (1/u) = (1/f) - (1/v)
-  print(u)
-  return u
+  u = (1/f) - (1/v)
+  print(1/u)
+  return 1/u
 
 # 2D and 3D Projection 
 def xprime(fprime,z,x):
