@@ -58,9 +58,9 @@ def fprime3D(zprime):
   print(fprime)
   return fprime
 
-#Relating pixels to camera coordinates WHEN PIXEL SIZE IS GIVEN, do it manually
+#Relating real world coordinates to camera coordinates WHEN PIXEL SIZE IS GIVEN, do it manually
 
-#Relating pixels to camera coordinates WHEN PIXEL SIZE IS NOT GIVEN
+#Relating real world coordinates to camera coordinates WHEN PIXEL SIZE IS NOT GIVEN
 import numpy as np
 #given the coordinates of a point in world reference frame (x,y,z), we can convert it to image reference frame (u,v)
 #where (x,y,z) are coordinates in the real world
