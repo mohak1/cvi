@@ -88,7 +88,7 @@ Smooth Hue Transition Interpolation
   is red when calculating red, we use that. Otherwise, we multiply the Green 
   channel by its bilinear interpolation.
 
-Nearest Neighbour Interpolation
+Edge Directed Interpolation
 
   For the pixel we're calculating, calculate the horizontal and vertical 
   gradients. Horizontal is absolute difference of the pixel's horizontal 
