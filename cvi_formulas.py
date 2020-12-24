@@ -27,5 +27,34 @@ def find_u(f,v):
   print(u)
   return u
 
+# 2D and 3D Projection 
+def xprime(fprime,z,x):
+  xprime = (fprime / z) * x
+  print(xprime)
+  return xprime
 
+def yprime3D(fprime,z,y):
+  yprime = (fprime / z) * y
+  print(yprime)
+  return yprime
+
+def fprime(xprime,z,x):
+  fprime = (z * xprime) / x
+  print(fprime)
+  return fprime
+
+def x(fprime,z,xprime):
+  x = (xprime * z) / fprime
+  print(x)
+  return x
+
+def z(frime, xprime, x):
+  z = (x / xprime) * fprime
+  print (z)
+  return z
+
+def fprime3D(zprime):
+  fprime = zprime
+  print(fprime)
+  return fprime
 
