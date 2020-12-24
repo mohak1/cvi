@@ -58,3 +58,17 @@ def fprime3D(zprime):
   print(fprime)
   return fprime
 
+#Relating pixels to camera coordinates WHEN PIXEL SIZE IS GIVEN, do it manually
+
+#Relating pixels to camera coordinates WHEN PIXEL SIZE IS NOT GIVEN
+import numpy as np
+#given the coordinates of a point in world reference frame (x,y,z), we can convert it to image reference frame (u,v)
+#where (x,y,z) are coordinates in the real world
+#a,b (alpha and beta) are magnification factors in x and y direction
+#ox, oy are the coordinated of the center point of the camera
+
+def pix_to_cam(x,y,z,a,b,ox,oy):
+  (u,v,_) = (1/z) * np.matmul(np.matmul(np.array([[a,0,ox], [0,b,oy], [0,0,1]]), np.array([[1,0,0,0],[0,1,0,0],[0,0,1,0]])), np.array([x,y,z,1]))
+  print([u,v])
+  return [u,v]
+
