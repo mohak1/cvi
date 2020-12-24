@@ -70,6 +70,7 @@ def pix_to_cam(x,y,z,a,b,ox,oy):
   print([u,v])
   return [u,v]
 
+
 '''
 Nearest Neighbour Interpolation:
 
@@ -98,3 +99,11 @@ Nearest Neighbour Interpolation
   If H = V, add the horizontal and vertical neighbour values and divide by 4. 
 
 '''
+
+def rgb2gray(rgb):
+
+    r, g, b = rgb[:,:,0], rgb[:,:,1], rgb[:,:,2]
+    gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
+
+    return gray
+=======
