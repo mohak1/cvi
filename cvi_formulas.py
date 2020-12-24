@@ -121,3 +121,27 @@ def world_reference_to_cam_reference(R, zeros, t, x,y,z):
   R = np.transpose(R)
   t = np.matmul(-R, t)
   (X,Y,Z,_) = np.matmul(np.array([R,t],[zeros,1]),np.array(x,y,z,1))
+
+
+#Gaussian Equation 
+def Gaussian(x,y,sigma):
+    G = (1/(2 * np.pi * sigma * sigma)) * np.exp(-(x*x + y*y)/(2 * sigma * sigma))
+    return G
+
+Gaussian(x,y,sigma)
+
+"""
+If the matrix is 3x3:
+
+Central Pixel is x = 0, y = 0
+
+[c  m  c]
+[m  Cp  m]
+[c  m  c]
+
+Cp is the central pixel where x = 0, y = 0
+C is the corners - (-1,-1),(-1,1),(1,-1),(1,1) : All have the same value
+m is the middle of the side pixels - (-1,0),(1,0),(0,-1),(0,1): All have the same value
+
+"""
+
