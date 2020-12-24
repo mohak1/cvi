@@ -67,8 +67,8 @@ def fprime3D(zprime):
 #ox, oy are the coordinated of the center point of the camera
 def pix_to_cam(x,y,z,a,b,ox,oy):
   (u,v,_) = (1/z) * np.matmul(np.matmul(np.array([[a,0,ox], [0,b,oy], [0,0,1]]), np.array([[1,0,0,0],[0,1,0,0],[0,0,1,0]])), np.array([x,y,z,1]))
-  print([u,v])
-  return [u,v]
+  print([u,v,_])
+  return [u,v,_]
 
 
 '''
