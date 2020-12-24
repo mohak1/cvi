@@ -106,4 +106,19 @@ def rgb2gray(rgb):
     gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
 
     return gray
-=======
+
+
+#CHANGE THE FOLLOWING VALUES:
+#R is the rotation matrix
+#t is the translation matrix
+R = np.array([[1,1,1],[1,1,1],[1,1,1]])
+t = np.array([[1],[1],[1]])
+zeros = np.zeros((3,1))
+#(x,y,z) are the coordinates in pixels
+def cam_reference_to_world_reference(R, zeros, t, x,y,z):
+  (X,Y,Z,_) = np.matmul(np.array([R,t],[zeros,1]),np.array(x,y,z,1))
+
+def world_reference_to_cam_reference(R, zeros, t, x,y,z):
+  R = np.transpose(R)
+  t = np.matmul(-R, t)
+  (X,Y,Z,_) = np.matmul(np.array([R,t],[zeros,1]),np.array(x,y,z,1))
