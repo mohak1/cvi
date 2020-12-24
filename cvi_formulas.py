@@ -114,11 +114,28 @@ def rgb2gray(rgb):
 R = np.array([[1,1,1],[1,1,1],[1,1,1]])
 t = np.array([[1],[1],[1]])
 zeros = np.zeros((3,1))
+zeros_t = np.transpose(zeros)
 #(x,y,z) are the coordinates in pixels
-def cam_reference_to_world_reference(R, zeros, t, x,y,z):
-  (X,Y,Z,_) = np.matmul(np.array([R,t],[zeros,1]),np.array(x,y,z,1))
+def cam_reference_to_world_reference(R, zeros_t, t, x,y,z):
+  (X,Y,Z,_) = np.matmul(np.array([R,t],[zeros_t,1]),np.array(x,y,z,1))
+  print((X,Y,Z,_))
+  return (X,Y,Z,_)
 
-def world_reference_to_cam_reference(R, zeros, t, x,y,z):
-  R = np.transpose(R)
-  t = np.matmul(-R, t)
-  (X,Y,Z,_) = np.matmul(np.array([R,t],[zeros,1]),np.array(x,y,z,1))
+def world_reference_to_cam_reference(R, zeros_t, t, x,y,z):
+  R_t = np.transpose(R)
+  t = np.matmul(-R_t, t)
+  (X,Y,Z,_) = np.matmul(np.array([R_t,t],[zeros_t,1]),np.array(x,y,z,1))
+  print((X,Y,Z,_))
+  return (X,Y,Z,_)
+
+#point in real world to a point in the image
+R = np.array([[1,1,1],[1,1,1],[1,1,1]])
+t = np.array([[1],[1],[1]])
+zeros = np.zeros((3,1))
+zeros_t = np.transpose(zeros)
+def world_to_image():
+  R_t = np.transpose(R)
+  t = np.matmul(-R_t, t)
+  [u,v,_] = (1/z) * np.matmul(np.matmul(np.array([[a,0,ox], [0,b,oy], [0,0,1]]), np.array([[1,0,0,0],[0,1,0,0],[0,0,1,0]])), (np.matmul(np.array([R_t,t],[zeros,1]), np.array([x,y,z,1]))))
+  print([u,v,_])
+  return [u,v,_]
