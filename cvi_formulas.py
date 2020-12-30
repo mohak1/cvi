@@ -145,3 +145,24 @@ m is the middle of the side pixels - (-1,0),(1,0),(0,-1),(0,1): All have the sam
 
 """
 
+
+''' 
+Gabor Equation
+A 2D Gabor Function is a Gaussian multiplied by a sinusoid
+x' = xcosθ + ysinθ
+y' = -xsinθ + ycosθ
+
+f = frequency of the sinusoidal function
+θ = orientation
+φ (PHI) = the phase of the sinusoidal function
+gamma = spatial aspect ratio
+'''
+import numpy as np
+
+def Gabor(x,y,theta,gamma,phi,f,sigma):
+  x_prime = x * np.cos(theta) + y * np.sin(theta) 
+  y_prime = -x * np.sin(theta) + y * np.cos(theta)
+  Gabor = np.exp(-(x_prime ** 2 + gamma ** 2 * y_prime ** 2)/ (2*sigma**2)) * np.cos(2*np.pi * x_prime * f + phi)
+  print (Gabor)
+  return Gabor
+Gabor()
